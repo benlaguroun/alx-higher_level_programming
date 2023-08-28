@@ -1,15 +1,17 @@
 #!/usr/bin/python3
-"""
-Print the first x integer elements from a list.
 
-Args:
-    my_list (list): The list from which to print integer elements.
-    x (int): The number of integer elements to print.
+def safe_print_list_integers(my_list=[], x=0):
+    """Print the first x elements of a list that are integers.
 
-Returns:
-    int: The count of integer elements printed.
-"""
-ret = 0
+    Args:
+      my_list (list): The list from which to print integer elements.
+      x (int): The number of integer elements to print.
+
+
+    Returns:
+        The number of elements printed.
+    """
+    ret = 0
     for i in range(0, x):
         try:
             print("{:d}".format(my_list[i]), end="")
@@ -18,4 +20,3 @@ ret = 0
             continue
     print("")
     return (ret)
-
