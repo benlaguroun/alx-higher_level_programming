@@ -10,7 +10,7 @@ Args:
     list_length (int): The number of elements to divide.
 
 Returns:
-    list: A new list of length 'list_length' containing element-wise divisions.
+    A new list of length 'list_length' containing element-wise divisions.
 """
 new_list = []
     for i in range(0, list_length):
