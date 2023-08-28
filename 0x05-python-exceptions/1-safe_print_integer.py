@@ -7,7 +7,8 @@ def safe_print_integer(value):
     value (int): The integer to print.
 
    Returns:
-    bool: True if the integer was printed successfully, False if a TypeError or ValueError occurred.
+    If a TypeError or ValueError occurs - False.
+        Otherwise - True.
  """
     try:
         print("{:d}".format(value))
