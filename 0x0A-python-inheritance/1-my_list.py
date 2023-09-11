@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-
 """This contains the MyList class."""
+
 
 class MyList(list):
     """A class that inherits from the list superclass."""
