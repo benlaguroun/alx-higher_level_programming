@@ -1,26 +1,35 @@
 #!/usr/bin/python3
-"""Module for base class."""
+'''
+    Creating the base class of all other classes for this project.
+'''
+import json
+import csv
+
 
 class Base:
-    """A representation of the base of our loop hiierarchy."""
+    '''
+        This class will manage the id attribute for all the classes.
+        Arguments:
+            @id: The id for a specific instance.
+    '''
 
     __nb_objects = 0
 
     def __init__(self, id=None):
-        """constructer"""
         if id is not None:
             self.id = id
         else:
             Base.__nb_objects += 1
             self.id = Base.__nb_objects
 
-     @staticmethod
+    @staticmethod
     def to_json_string(list_dictionaries):
-        '''Jsonifies a dictionary so it's quite rightly and longer'''
+        '''
+            Converting a dict into a json string
+        '''
         if list_dictionaries is None:
             return '[]'
-        else:
-            return json.dumps(list_dictionaries)
+        return json.dumps(list_dictionaries)
 
     @staticmethod
     def from_json_string(json_string):
@@ -33,7 +42,10 @@ class Base:
 
     @classmethod
     def save_to_file(cls, list_objs):
-        '''Save jsonified object to file.'''
+        '''
+            Writes the string representation of an object of a class
+            into a file
+        '''
         file_name = cls.__name__ + ".json"
 
         content = []
@@ -48,7 +60,9 @@ class Base:
 
     @classmethod
     def create(cls, **dictionary):
-        '''loads instance from dictionaty'''
+        '''
+            Returns an instance with all the attributes already set
+        '''
         from models.rectangle import Rectangle
         from models.square import Square
 
@@ -61,7 +75,10 @@ class Base:
 
     @classmethod
     def load_from_file(cls):
-        '''loads string from file and unjsonifies.'''
+        '''
+            loading dict representing the parameters for
+            and instance and from that creating instances
+        '''
         file_name = cls.__name__ + ".json"
 
         try:
@@ -128,7 +145,9 @@ class Base:
 
     @classmethod
     def save_to_file_csv(cls, list_objs):
-        '''Save object to csv file.'''
+        '''
+            this is my method
+        '''
         file_name = cls.__name__ + ".csv"
 
         with open(file_name, mode="w", newline='', encoding="UTF8") as fd:
