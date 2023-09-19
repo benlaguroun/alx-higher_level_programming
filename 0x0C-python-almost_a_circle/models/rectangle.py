@@ -68,9 +68,7 @@ class Rectangle(Base):
 
     @y.setter
     def y(self, value):
-        '''
-            Setting private attribute
-        '''
+        
         self.setter_validation("y", value)
         self.__y = value
 
