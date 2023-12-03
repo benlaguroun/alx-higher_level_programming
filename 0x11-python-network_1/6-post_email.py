@@ -5,12 +5,11 @@
 - Send a request to the specified URL
 - Display the value of the X-Request-Id variable found in the response header.
 """
+import requests
 import sys
-import urllib.request
 
-if __name__ == "__main__":
-    url = sys.argv[1]
+url = sys.argv[1]
+email = sys.argv[2]
 
-    request = urllib.request.Request(url)
-    with urllib.request.urlopen(request) as response:
-        print(dict(response.headers).get("X-Request-Id"))
+response = requests.post(url, data={'email': email})
+print("Your email is:", response.text)
